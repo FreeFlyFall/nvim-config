@@ -9,8 +9,15 @@ vim.opt.expandtab = false
 vim.opt.smartindent = true
 
 vim.opt.wrap = true
+-- Toggle wrapping
+vim.keymap.set("n", "<leader>tw", function()
+    if vim.inspect(vim.opt.wrap["_value"]) == "true" then -- if wrap value is true
+      vim.o.wrap = false
+    else
+      vim.o.wrap = true
+    end
+  end, {desc = 'Turn on soft wrapping'})
 
--- Make a change comment here?
 vim.opt.swapfile = false
 vim.opt.backup = false
 -- vim.opt.undodir = os.getenv("HOME" .. "/.vim/undodir")
@@ -55,15 +62,6 @@ vim.keymap.set("v", "<leader>d", "\"_d")
 vim.keymap.set("n", "<leader>y", "\"+y")
 vim.keymap.set("v", "<leader>y", "\"+y")
 vim.keymap.set("n", "<leader>Y", "\"+Y")
-
--- Toggle wrapping
-vim.keymap.set("n", "<leader>tw", function()
-    if vim.inspect(vim.opt.wrap["_value"]) == "true" then -- if wrap value is true
-      vim.o.wrap = false
-    else
-      vim.o.wrap = true
-    end
-  end, {desc = 'Turn on soft wrapping'})
 
 vim.keymap.set("n", "<leader>xb", "<cmd>!python3 /home/r/wo/bibq.py %:p<cr>", {desc = "bibq this file on linux"})
 vim.keymap.set("n", "<leader>xw", "<cmd>!py C:\\Users\\R\\wo\\bibq.py %:p<cr>", {desc = "bibq this file on windows"})
