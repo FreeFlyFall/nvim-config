@@ -56,7 +56,7 @@ vim.keymap.set("v", "<leader>y", "\"+y")
 vim.keymap.set("n", "<leader>Y", "\"+Y")
 
 -- Toggle wrapping
-vim.keymap.set("n", "<leader>ww", function()
+vim.keymap.set("n", "<leader>tw", function()
     if vim.inspect(vim.opt.wrap["_value"]) == "true" then -- if wrap value is true
       vim.o.wrap = false
     else
